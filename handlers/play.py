@@ -72,11 +72,11 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((190, 550), f"Parça İsmi: {title}", (255, 255, 255), font=font)
+    draw.text((190, 550), f"İsmi: {title}", (255, 255, 255), font=font)
     draw.text(
-        (190, 590), f"Parçanın süresi: {duration}", (255, 255, 255), font=font
+        (190, 590), f"Süresi: {duration}", (255, 255, 255), font=font
     )
-    draw.text((190, 630), f"Görüntülenme sayısı: {views}", (255, 255, 255), font=font)
+    draw.text((190, 630), f"Görüntülenme: {views}", (255, 255, 255), font=font)
     draw.text((190, 670),
         f"Ekleyen kişi: {requested_by}",
         (255, 255, 255),
@@ -109,7 +109,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "TaliaMusicAsistant"
+        user.first_name = "Black"
     usar = user
     wew = usar.id
     try:
@@ -232,7 +232,7 @@ async def play(_, message: Message):
         await lel.edit("🔎 **Lütfen bekleyiniz...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🔄 **Ses İşleniyor..🔥**")
+        await lel.edit("🔄 **Sesler İşleniyor.**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
